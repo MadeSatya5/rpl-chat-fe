@@ -160,3 +160,9 @@ h4,h2,p {
 .post-icons:hover{
   cursor: pointer;
 }
+.post-icons .liked{
+  color: red;
+}
+.post-icons .unliked:hover{
+  color: red;
+}
