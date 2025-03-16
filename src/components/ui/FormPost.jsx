@@ -1,14 +1,16 @@
 import { useState } from "react";
 import ProfilePicture from "./ProfilePicture";
 
-function FormPost() {
+function FormPost({onAddPost}) {
   const [inputPost, setInputPost] = useState("");
 
   function handleSubmit(e) {
       e.preventDefault();
       
       if(!inputPost) return;
-      console.log(inputPost);
+      // console.log(inputPost);
+      
+      onAddPost(inputPost);
 
       setInputPost("");
   }

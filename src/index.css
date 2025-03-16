@@ -21,7 +21,7 @@ body{
   /* gap: 200px; */
   padding-top: 20px;
 }
-h4,h2 {
+h4,h2,p {
   margin: 0; 
   padding: 0; 
 }
@@ -75,7 +75,6 @@ h4,h2 {
     border-right: 1px solid var(--color-primary-light);
     width: 650px;
     min-height: 100vh;
-    /* padding-left: 20px; */
 }
 
 .main-nav{
@@ -127,4 +126,24 @@ h4,h2 {
 }
 .form-post button:hover{
   cursor: pointer;
+}
+
+
+.post-list{
+  padding: 18px 20px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--color-primary-light);
+}
+.post-list .user-info p {
+  color: var(--color-button);
+}
+.post-list .user-info{
+  display: flex;
+  gap: 5px;
+}
+.post-list .post-details{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
