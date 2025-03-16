@@ -3,6 +3,7 @@
   --color-primary-medium: #1A1A1A;
   --color-primary-light: #2F2F2F;
   --color-text-white: #ffffff;
+  --color-button: #787A7A;
 }
 body{
   font-family: "Bricolage Grotesque", sans-serif;
@@ -91,24 +92,39 @@ h4,h2 {
 .form-post{
   margin-top: 20px;
   display: flex;
-  gap: 10px;
-  border-bottom: 1px solid var(--color-primary-light);
-  padding-bottom: 40px;
-  padding-left: 20px;
+  flex-direction: column;
   
+  border-bottom: 1px solid var(--color-primary-light);
+  padding-bottom: 15px;
+  padding-left: 20px;
 }
-.form-post input{
+.input-container{
+  display: flex;
+  gap: 10px;
+}
+.input-container input{
   font-size: 18px;
   background-color: var(--color-primary);
   border: none;
   color: var(--color-text-white);
   width: 80%;
 }
-.form-post input:focus{
+.input-container input:focus{
   outline: none;
   border-bottom: 1px solid var(--color-primary-light);
 }
 .form-post button {
-  align-self: flex-end; /* Menjaga tombol tetap di bawah */
-  padding: 8px 12px;
+  align-self: end;
+  color: var(--color-primary);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: 600;
+  background-color: var(--color-button);
+}
+.form-post button:hover{
+  cursor: pointer;
 }
