@@ -2,17 +2,22 @@ import { useState } from "react";
 import ProfilePicture from "./ProfilePicture";
 
 function FormPost({onAddPost}) {
-  const [inputPost, setInputPost] = useState("");
+  const [caption, setCaption] = useState("");
 
   function handleSubmit(e) {
       e.preventDefault();
       
-      if(!inputPost) return;
+      if(!caption) return;
       // console.log(inputPost);
-      
-      onAddPost(inputPost);
 
-      setInputPost("");
+      const newPost  = {
+        id: Date.now(),
+        caption,
+      }
+      
+      onAddPost(newPost);
+
+      setCaption("");
   }
 
   return (
@@ -22,8 +27,8 @@ function FormPost({onAddPost}) {
         <input
           type="text"
           placeholder="What's Going On?"
-          value={inputPost}
-          onChange={(e) => setInputPost(e.target.value)}
+          value={caption}
+          onChange={(e) => setCaption(e.target.value)}
         />
       </div>
       <button>Post</button>
