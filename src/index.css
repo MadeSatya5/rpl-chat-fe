@@ -101,14 +101,14 @@ h4,h2,p {
   display: flex;
   gap: 10px;
 }
-.input-container input{
+input{
   font-size: 18px;
   background-color: var(--color-primary);
   border: none;
   color: var(--color-text-white);
   width: 80%;
 }
-.input-container input:focus{
+input:focus{
   outline: none;
   border-bottom: 1px solid var(--color-primary-light);
 }

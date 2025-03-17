@@ -7,6 +7,9 @@ import { useState } from "react";
 
 function PostList({ post, onDeletePost }) {
   const [liked, setIsLiked] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [newCaption, setNewCaption] = useState(post.caption);
+
   return (
     <div className="post-list">
       <ProfilePicture />
@@ -15,14 +18,29 @@ function PostList({ post, onDeletePost }) {
           <h4>Made Satya</h4>
           <p>@madesatya.5</p>
         </div>
-        <p>{post.caption}</p>
+
+        {isEditing ? (
+          <input
+            type="text"
+            value={newCaption}
+            onChange={(e) => setNewCaption(e.target.value)}
+            onBlur={() => setIsEditing(false)} 
+            onKeyDown={(e) => {
+              if (e.key === "Enter") setIsEditing(false);
+            }}
+            autoFocus
+          />
+        ) : (
+          <p>{newCaption}</p>
+        )}
+
         <div className="post-icons">
           {liked ? (
             <FaHeart className="liked" onClick={() => setIsLiked(false)}/>
           ) : (
             <FaRegHeart className="unliked" onClick={() => setIsLiked(true)}/>
           )}
-          <FaRegEdit />
+          <FaRegEdit onClick={() => setIsEditing(true)}/>
           <MdOutlineDeleteOutline onClick={() => onDeletePost(post.id)} />
         </div>
       </div>
