@@ -18,10 +18,16 @@ function Main() {
     setPosts((posts) => posts.filter((post) => post.id !== id));
   }
 
+  function handleEditPost(id, newCaption) {
+  setPosts((posts) =>
+    posts.map((post) =>
+      post.id === id ? { ...post, caption: newCaption } : post
+    )
+  );
+}
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(posts));
-  }, [posts])
-
+  }, [posts]);
 
   return (
     <div className="main">
@@ -32,6 +38,7 @@ function Main() {
           post={post}
           key={idx}
           onDeletePost={handleDeletePost}
+          onEditPost={handleEditPost}
         />
       ))}
     </div>

@@ -5,7 +5,7 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { useState } from "react";
 
-function PostList({ post, onDeletePost }) {
+function PostList({ post, onDeletePost, onEditPost }) {
   const [liked, setIsLiked] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [newCaption, setNewCaption] = useState(post.caption);
@@ -23,8 +23,11 @@ function PostList({ post, onDeletePost }) {
           <input
             type="text"
             value={newCaption}
-            onChange={(e) => setNewCaption(e.target.value)}
-            onBlur={() => setIsEditing(false)} 
+            onChange={(e) => {
+              setNewCaption(e.target.value);
+              onEditPost(post.id, e.target.value);
+            }}
+            onBlur={() => setIsEditing(false)}
             onKeyDown={(e) => {
               if (e.key === "Enter") setIsEditing(false);
             }}
@@ -36,11 +39,15 @@ function PostList({ post, onDeletePost }) {
 
         <div className="post-icons">
           {liked ? (
-            <FaHeart className="liked" onClick={() => setIsLiked(false)}/>
+            <FaHeart className="liked" onClick={() => setIsLiked(false)} />
           ) : (
-            <FaRegHeart className="unliked" onClick={() => setIsLiked(true)}/>
+            <FaRegHeart className="unliked" onClick={() => setIsLiked(true)} />
           )}
-          <FaRegEdit onClick={() => setIsEditing(true)}/>
+          <FaRegEdit
+            onClick={() => {
+              setIsEditing(true);
+            }}
+          />
           <MdOutlineDeleteOutline onClick={() => onDeletePost(post.id)} />
         </div>
       </div>
