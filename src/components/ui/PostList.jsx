@@ -5,8 +5,7 @@ import { MdOutlineDeleteOutline } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { useState } from "react";
 
-function PostList({ post, onDeletePost, onEditPost }) {
-  const [liked, setIsLiked] = useState(false);
+function PostList({ post, onDeletePost, onEditPost, onLike }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newCaption, setNewCaption] = useState(post.caption);
 
@@ -38,10 +37,10 @@ function PostList({ post, onDeletePost, onEditPost }) {
         )}
 
         <div className="post-icons">
-          {liked ? (
-            <FaHeart className="liked" onClick={() => setIsLiked(false)} />
+          {post.liked ? (
+            <FaHeart className="liked" onClick={() => onLike(post.id)} />
           ) : (
-            <FaRegHeart className="unliked" onClick={() => setIsLiked(true)} />
+            <FaRegHeart className="unliked" onClick={() => onLike(post.id)} />
           )}
           <FaRegEdit
             onClick={() => {

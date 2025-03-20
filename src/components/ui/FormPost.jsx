@@ -13,6 +13,7 @@ function FormPost({onAddPost}) {
       const newPost  = {
         id: Date.now(),
         caption,
+        liked: false,
       }
       
       onAddPost(newPost);

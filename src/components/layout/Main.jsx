@@ -17,14 +17,20 @@ function Main() {
   function handleDeletePost(id) {
     setPosts((posts) => posts.filter((post) => post.id !== id));
   }
-
   function handleEditPost(id, newCaption) {
-  setPosts((posts) =>
-    posts.map((post) =>
-      post.id === id ? { ...post, caption: newCaption } : post
-    )
-  );
-}
+    setPosts((posts) =>
+      posts.map((post) =>
+        post.id === id ? { ...post, caption: newCaption } : post
+      )
+    );
+  }
+  function handleLikePost(id) {
+    setPosts((posts) =>
+      posts.map((post) => 
+        post.id === id ? { ...post, liked: !post.liked } : post)
+    );
+  }
+
   useEffect(() => {
     localStorage.setItem("posts", JSON.stringify(posts));
   }, [posts]);
@@ -39,6 +45,7 @@ function Main() {
           key={idx}
           onDeletePost={handleDeletePost}
           onEditPost={handleEditPost}
+          onLike={handleLikePost}
         />
       ))}
     </div>
