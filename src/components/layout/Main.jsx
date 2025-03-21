@@ -15,7 +15,12 @@ function Main() {
     setPosts((posts) => [...posts, post]);
   }
   function handleDeletePost(id) {
-    setPosts((posts) => posts.filter((post) => post.id !== id));
+    if(confirm("Are You Sure Want to Delete This Post?") === true){
+      setPosts((posts) => posts.filter((post) => post.id !== id));
+    }
+    else{
+      return;
+    };
   }
   function handleEditPost(id, newCaption) {
     setPosts((posts) =>
@@ -39,10 +44,10 @@ function Main() {
     <div className="main">
       <MainNav />
       <FormPost onAddPost={handleAddPost} />
-      {posts.map((post, idx) => (
+      {posts.map((post) => (
         <PostList
           post={post}
-          key={idx}
+          key={post.id}
           onDeletePost={handleDeletePost}
           onEditPost={handleEditPost}
           onLike={handleLikePost}
