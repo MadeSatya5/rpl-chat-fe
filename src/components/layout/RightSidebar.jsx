@@ -1,7 +1,9 @@
+import SearchBar from "../ui/SearchBar"
+
 function RightSidebar() {
     return (
-        <div>
-            RSB
+        <div className="right-sidebar">
+            <SearchBar />
         </div>
     )
 }

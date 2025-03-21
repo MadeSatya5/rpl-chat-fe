@@ -36,7 +36,7 @@ h4,h2,p {
   font-size: 20px;
   text-align: center;
   border-right: 1px solid var(--color-primary-light);
-  padding-right: 80px;
+  padding-right: 60px;
   min-height: 100vh;
 }
 .left-sidebar-item{
@@ -184,4 +184,26 @@ input:focus{
 }
 .post-icons .unliked:hover{
   color: red;
+}
+
+
+/* ------ Right Sidebar ------- */
+.right-sidebar{
+  padding-top: 10px;
+  margin: 0 20px;
+}
+.search-bar{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--color-primary-light);
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 100%;
+}
+.search-bar input::placeholder {
+  font-size: 16px; 
+}
+.search-bar input:focus{
+  border: none;
 }
