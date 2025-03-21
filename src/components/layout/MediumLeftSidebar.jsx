@@ -7,13 +7,15 @@ import ProfilePicture from "../ui/ProfilePicture";
 
 function MediumLeftSidebar() {
   return (
-    <div className="left-sidebar medium">
-      <ProfilePicture />
-      <LeftSidebarItem icon={FaHome} active={true} />
-      <LeftSidebarItem icon={FaSearch} />
-      <LeftSidebarItem icon={FaHeart} />
-      <LeftSidebarItem icon={IoMdNotificationsOutline} />
-    </div>
+    <nav className="medium-left-sidebar">
+      <div className="left-sidebar medium">
+        <ProfilePicture />
+        <LeftSidebarItem icon={FaHome} active={true} />
+        <LeftSidebarItem icon={FaSearch} />
+        <LeftSidebarItem icon={FaHeart} />
+        <LeftSidebarItem icon={IoMdNotificationsOutline} />
+      </div>
+    </nav>
   );
 }
 
